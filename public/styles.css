@@ -1,0 +1,80 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Noto+Serif:ital,wght@1,300&family=Swanky+and+Moo+Moo&display=swap');
+*/
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.note p{
+    font-family: "Cedarville Cursive";
+
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    height: 80px;
+}
+.header a{
+    margin: auto 2px;
+}
+.search{
+    padding-left: 20%;
+}
+.search input{
+    width: 70%;
+    height: 30px;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+.notes{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.note{
+    border: 1px solid black;
+    width: 23%;
+    height: 250px;
+    margin: 5px;   
+}
+
+@media screen and (max-width:600px){
+    .note{
+        width:  100% ;
+    }
+    .search input{
+        width: 90%;
+    }
+    .search{
+        padding-left: 5%;
+    }
+    
+}
+
+@media screen and (max-width:1000px){
+    .search input{
+        width: 80%;
+    }
+    .search{
+        padding-left: 5%;
+    }
+    .container{
+        width: 90%;
+    }
+    .note{
+        width: 40%;
+    }
+    
+}
+
