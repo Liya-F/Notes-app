@@ -78,3 +78,31 @@ body{
     
 }
 
+/*  create page  */
+.create-note form{
+    max-width: 400px;
+    margin: 0 auto;
+}
+.create-note input, .create-note textarea{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px
+}
+.create-note label{
+    display: block;
+    margin-top: 24px;
+}
+textarea{
+    height: 120px;
+}
+.create-note button{
+    margin-top: 20px;
+    background-color: tomato;
+    color: white;
+    padding: 6px;
+    border:0;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
