@@ -1,38 +1,24 @@
 const express = require('express');  
 const app = express();
-app.use(express.static('public'));
-const mongoose = express('mongoose');
 
-const  dbURI = 'mongodb+srv://Liya:<password>@cluster0.t9ag3i7.mongodb.net/Notesdb?retryWrites=true&w=majority';
+const mongoose = require('mongoose');
+const { result } = require('lodash');
+const noteRoutes = require('./routes/noteRoutes')
 
-const database = (module.exports = ()=>{
-    const connectionParams = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    };
-    try{
-        mongoose.connect(
-            dbURI
-        );
-        console.log('database connected');
-    }catch(err){
-        console.log(err);
-        console.log('database connection failed');
-    }
-}
-)
+const  dbURI = 'mongodb+srv://Liya:Liya1*habte@cluster0.t9ag3i7.mongodb.net/Notesdb?retryWrites=true&w=majority';
 
-database();
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then((result)=>{console.log('connected to a database'); app.listen(3000); console.log('listening on port 3000')})
+.catch((err)=>{console.log(err)});
 
-app.listen(3000); 
-console.log('listening on port 3000')
 app.set('view engine', 'ejs'); 
+app.use(express.static('public'));  
+app.use(express.urlencoded({extended: true})); 
 
 
-app.get('/',(req,res)=>{
-    res.render('index',{title:'Home'})
-})
+//Routes
+app.use(noteRoutes)
 
-app.get('/create', (req,res)=>{
-    res.render('create',{title: 'Create'})
+app.use((req,res)=>{
+res.status(404).render('404', {title:'404'}) 
 })
