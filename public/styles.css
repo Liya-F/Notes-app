@@ -1,20 +1,25 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Noto+Serif:ital,wght@1,300&family=Swanky+and+Moo+Moo&display=swap');
-*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Cedarville+Cursive&family=Poppins&family=Sue+Ellen+Francisco&display=swap');@import url('../node_modules/font-awesome/css/font-awesome.min.css');
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins';
    
 }
-.container{
-    width: 80%;
+.inner-container{
+    width: 90%;
     margin: auto;
 }
-.note p{
-    font-family: "Cedarville Cursive";
+.title, .snippet {
+    font-family: 'Caveat';
+    font-weight: ;
+    font-size: 18px;
+    text-decoration: none;
 
 }
 .header{
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -24,59 +29,73 @@ body{
     margin: auto 2px;
 }
 .search{
-    padding-left: 20%;
+    padding: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
 }
 .search input{
-    width: 70%;
+    width: 60%;
     height: 30px;
     border-radius: 10px;
-    margin: 10px auto;
+    margin: auto;
 }
+
+
 .notes{
     display: flex;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
-
 .note{
-    border: 1px solid black;
-    width: 23%;
     height: 250px;
-    margin: 5px;   
+    width: 300px;
+    overflow: hidden;
+    border: 3px solid #eee;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    transition: 0.6s;	
+    padding: 8px;
+    position: relative;
+    background-color: #FFFF99;
+    border-top-left-radius: 35px;
 }
 
-@media screen and (max-width:600px){
-    .note{
-        width:  100% ;
-    }
+.note:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+}
+.newNote{
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    z-index: 10;
+    
+}
+.darkMode{
+    position: fixed;
+    top: 8%;
+    right: 5%;
+    z-index: 10;
+}
+.date{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 5px;
+}
+
+@media screen and (max-width:720px){
     .search input{
-        width: 90%;
-    }
-    .search{
-        padding-left: 5%;
+        width: 98%;
     }
     
 }
 
-@media screen and (max-width:1000px){
-    .search input{
-        width: 80%;
-    }
-    .search{
-        padding-left: 5%;
-    }
-    .container{
-        width: 90%;
-    }
-    .note{
-        width: 40%;
-    }
-    
-}
 
 /*  create page  */
 .create-note form{
