@@ -9,11 +9,11 @@
         
         <div class="create-note content">
     <form action="/" method="POST">
-        <label class="label label1">Note title:</label>
+        <label class="label txt">Note title:</label>
         <input type="text" id="title" name="title" required>
-        <label class="label label1">Note snippet:</label>
+        <label class="label txt">Note snippet:</label>
         <input type="text" id="snippet" name="snippet" maxlength="180" required>
-        <label class="label label">Note body:</label>
+        <label class="label txt">Note body:</label>
         <textarea id="body" name="body" maxlength="500" required></textarea>
         <button type="submit" style="text-align: center;">Submit</button>
     </form>
@@ -39,6 +39,21 @@
         }else{
         document.getElementById("txt").classList.remove('txt1');  
         document.getElementById("txt").classList.add('txt2');
+            
+          }
+
+           var txtElements = document.getElementsByClassName('txt');
+          for(var i = 0; i< txtElements.length; i++){
+            var txtElement = txtElements[i];
+            if (txtElement.classList.contains('txt2')){
+                txtElement.classList.remove('txt2');
+                txtElement.classList.add('txt1');
+                
+            }else{
+                txtElement.classList.remove('txt1');
+                txtElement.classList.add('txt2')
+            }
+            
             
           }
 
