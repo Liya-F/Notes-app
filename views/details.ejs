@@ -37,6 +37,30 @@
             
           }
 
+          if(document.getElementById("txt").classList.contains('txt2')){
+            document.getElementById("txt").classList.remove('txt2'); 
+            document.getElementById("txt").classList.add('txt1'); 
+        }else{
+        document.getElementById("txt").classList.remove('txt1');  
+        document.getElementById("txt").classList.add('txt2');
+            
+          }
+
+          var txtElements = document.getElementsByClassName('txt');
+          for(var i = 0; i< txtElements.length; i++){
+            var txtElement = txtElements[i];
+            if (txtElement.classList.contains('txt2')){
+                txtElement.classList.remove('txt2');
+                txtElement.classList.add('txt1');
+                
+            }else{
+                txtElement.classList.remove('txt1');
+                txtElement.classList.add('txt2')
+            }
+            
+            
+          }
+
         }
     </script> 
 </body>
