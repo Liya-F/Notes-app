@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes | <%=title%></title>
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-    <body>
+
+    <%- include('./partials/head.ejs') %>
+
+    <body id="htmlbody">
+        <div class="inner-container">
+            <%- include('./partials/header.ejs') %>
+        
         <div class="create-note content">
     <form action="/" method="POST">
-        <label for="title">Note title:</label>
+        <label class="label label1">Note title:</label>
         <input type="text" id="title" name="title" required>
-        <label for="snippet">Note snippet:</label>
-        <input type="text" id="snippet" name="snippet" required>
-        <label for="body">Note body:</label>
-        <textarea id="body" name="body" required></textarea>
-        <button type="submit">Submit</button>
+        <label class="label label1">Note snippet:</label>
+        <input type="text" id="snippet" name="snippet" maxlength="180" required>
+        <label class="label label">Note body:</label>
+        <textarea id="body" name="body" maxlength="500" required></textarea>
+        <button type="submit" style="text-align: center;">Submit</button>
     </form>
         </div>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+        
+        <script>
+            function darkMode(){
+            if(document.getElementById("htmlbody").classList.contains('htmlbody2')){
+            document.getElementById("htmlbody").classList.remove('htmlbody2'); 
+            document.getElementById("htmlbody").classList.add('htmlbody1'); 
+        }else{
+        document.getElementById("htmlbody").classList.remove('htmlbody1');  
+        document.getElementById("htmlbody").classList.add('htmlbody2');
+            
+          }
+
+          if(document.getElementById("txt").classList.contains('txt2')){
+            document.getElementById("txt").classList.remove('txt2'); 
+            document.getElementById("txt").classList.add('txt1'); 
+        }else{
+        document.getElementById("txt").classList.remove('txt1');  
+        document.getElementById("txt").classList.add('txt2');
+            
+          }
+
+        }
+        </script>
     </body>
-</body>
+
 </html>
