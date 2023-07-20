@@ -1,21 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Cedarville+Cursive&family=Poppins&family=Sue+Ellen+Francisco&display=swap');@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+.htmlbody2{
+    background-color: #2D4356;
+}
+.htmlbody1{
+    background-color: #FAF3F0;
+}
+.txt1{
+    color: black;
+}
+.txt2{
+    color: white;
+}
+.label1{
+    color: black;
+}
+.label2{
+    color: white;
+}
+
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Poppins';
+    background-color: #FAF3F0;
    
 }
 .inner-container{
     width: 90%;
     margin: auto;
 }
-.title, .snippet {
+.title, .snippet, .content {
     font-family: 'Caveat';
-    font-weight: ;
-    font-size: 18px;
+    font-size: 25px;
     text-decoration: none;
+
 
 }
 .header{
@@ -25,22 +45,40 @@ body{
     margin: auto;
     height: 80px;
 }
-.header a{
+.header i{
     margin: auto 2px;
 }
 .search{
-    padding: auto;
+    padding-left: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    border: 1px solid lightgray;
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    
 
 }
 .search input{
-    width: 60%;
+    width: 95%;
     height: 30px;
-    border-radius: 10px;
-    margin: auto;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-indent: 20px;
+    
+}
+.search i{
+    position: absolute;
+    left: 8px;
+
 }
 
 
@@ -49,6 +87,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 25px;
     
 }
 .note{
@@ -61,7 +100,7 @@ body{
     transition: 0.6s;	
     padding: 8px;
     position: relative;
-    background-color: #FFFF99;
+    background-color: #DBC4F0;
     border-top-left-radius: 35px;
 }
 
@@ -69,59 +108,157 @@ body{
     transform: scale(1.01);
     cursor: pointer;
 }
+
+.note i{
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    color: rgb(146, 25, 25);
+    font-size: 18px;
+}
+.note:nth-of-type(even){
+    background-color: #D4E2D4;
+}
 .newNote{
     position: fixed;
     bottom: 8%;
-    right: 5%;
+    right: 3%;
     z-index: 10;
+    font-size: 20px;
+    background-color: #9cb39c;
+    border-radius: 20px;
+    padding: 8px 12px 8px 10px;
+    color: #233142;
     
+}
+.container span{
+    font-size: 15px;
+    margin-left: 5px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+
 }
 .darkMode{
     position: fixed;
-    top: 8%;
+    top: 5%;
     right: 5%;
     z-index: 10;
+    font-size: 23px;
+    background-color: transparent;
+    border: none;
+    color: lightblue;
+    margin: auto;
 }
 .date{
     position: absolute;
     left: 0;
     bottom: 0;
-    font-size: 5px;
+    font-size: 4px;
 }
 
 @media screen and (max-width:720px){
     .search input{
-        width: 98%;
+        width: 95%;
     }
-    
+    .search{
+        width: 90%;
+    }
 }
 
 
 /*  create page  */
+
 .create-note form{
-    max-width: 400px;
-    margin: 0 auto;
+    width: 60%;
+    margin: auto;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 25px;
+    height: auto;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 .create-note input, .create-note textarea{
     display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 8px
+    width: 90%;
+    margin: auto;
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid lightgray;
+    
 }
-.create-note label{
+.create-note .label{
     display: block;
-    margin-top: 24px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: 'Poppins' !important;
+    color: black;
+    
+}
+input{
+    height: 25px;
+    font-size: 15px;
 }
 textarea{
     height: 120px;
 }
 .create-note button{
-    margin-top: 20px;
-    background-color: tomato;
-    color: white;
+    margin-top: 30px;
+    background-color: lightblue;
+    width: 130px;
+    border-radius: 10px;
+    color: black;
     padding: 6px;
     border:0;
     font-size: 1.2rem;
     cursor: pointer;
+    margin-left: 3%;
+    
+   
+}
+@media screen and (max-width:720px){
+    .create-note form{
+        width: 90%;
+    }
+
 }
 
+footer{
+    font-size: 15px;
+    color: rgb(145, 144, 144);
+    width: fit-content;
+    margin: auto;
+    margin-top: 80px;
+}
+
+/*  Details */
+.details{
+    border: 1px solid lightgray;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    padding: 15px;
+    position: relative;
+    height: auto;
+}
+.details h2{
+    text-align: center;
+}
+.details .content{
+    margin-bottom: 60px;
+}
+
+.details i{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: green;
+}
+.details .postedDate{
+    position: absolute;
+    font-size: 20px;
+    bottom: 0;
+    left: 20px;
+    font-style: 'Poppins' !important;
+    font-style: italic;
+}
