@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes | <%=title%></title>
-</head>
-<body>
-    <div class="details content">
-        <h2><%=note.title%></h2>
-        <div class="content">
-            <p><%=note.body%></p>
+
+    <%- include('./partials/head.ejs') %>
+
+<body id="htmlbody">
+    <div class="inner-container">
+
+        <%- include('./partials/header.ejs') %>
+
+        <div class="details content">
+            <h2 class="txt"><%=note.title%></h2>
+            <div class="snippet txt"><%=note.snippet%></div>
+            <div class="content txt">
+                <p><%=note.body%></p>
+            </div>
+
+            <div class="meta">
+                <p class="postedDate txt" style="font-size: 15px; font-family: 'Poppins';"><%= note.createdAt.toDateString(); %></p>
+                <i class="fa-solid fa-pen-to-square txt"></i>
+            </div>
+            
         </div>
-        
-    </div> 
+
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    
+    <script>
+        function darkMode(){
+            if(document.getElementById("htmlbody").classList.contains('htmlbody2')){
+            document.getElementById("htmlbody").classList.remove('htmlbody2'); 
+            document.getElementById("htmlbody").classList.add('htmlbody1'); 
+        }else{
+        document.getElementById("htmlbody").classList.remove('htmlbody1');  
+        document.getElementById("htmlbody").classList.add('htmlbody2');
+            
+          }
+
+        }
+    </script> 
 </body>
 </html>
     
