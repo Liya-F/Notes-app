@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--Custom css -->
-    <link rel="stylesheet" href="/styles.css">
+   
+<%- include('./partials/head.ejs') %>
 
-    <title>Notes | <%=title%></title>
-</head>
-<body>
+<body id="htmlbody">
     <div class="container">
         <div class="inner-container">
-          <div class="header">
-            <h1>Notes</h1>
-            <a href="" class="darkMode">Dark mode</a>
-          </div>
+
+          <%- include('./partials/header.ejs') %>
+
           <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" name="search" id="find" onkeyup="search()">
           </div>
           <div class="notes">
             
             <%if(notes.length > 0){%>
                 <%notes.forEach(note => { %>
-                    <a href="/<%=note._id%>">
+                  
+                      
                         <div class="note">
-                            <h3 class="title" style="text-decoration: none; font-size: 23px;"><a href="/<%=note._id%>"><%= note.title %></a></h3>
-                            <p class="snippet" style="font-size: 19px;"><%= note.snippet %></p>
+                          
+                            <h3 class="title" style="font-size: 23px;"><a style="text-decoration: none; color: black;" href="/<%=note._id%>"><%= note.title %></a></h3>
+                            <p class="snippet" style="font-size: 19px;"><a style="text-decoration: none; color: black;" href="/<%=note._id%>"><%= note.snippet %></a></p>
                             <div class="meta">
-                                <p class="date" style="font-size: 14px;"><%= note.createdAt.toDateString(); %></p>
+                                <p class="date" style="font-size: 14px; font-family: 'Poppins';"><%= note.createdAt.toDateString(); %></p>
                                 <i class="fa-solid fa-trash-can"></i>
                             </div>
+                          
                             </div>
-                    </a>
+                          
+  
                     
                 <%})%>
             <%}%>
@@ -39,8 +38,10 @@
                 </div>
         
           </div>
-          <a href="/create" class="newNote">New note</a>
+          <a href="/create" class="newNote"><i class="fa-solid fa-pen"><span>Note</span></i></a>
         </div>
+
+        <%- include('./partials/footer.ejs') %>
 
         <script type="text/javascript">
           function search() {
@@ -60,6 +61,26 @@
           }
           }
           }
+
+          function darkMode(){
+            if(document.getElementById("htmlbody").classList.contains('htmlbody2')){
+            document.getElementById("htmlbody").classList.remove('htmlbody2'); 
+            document.getElementById("htmlbody").classList.add('htmlbody1'); 
+        }else{
+        document.getElementById("htmlbody").classList.remove('htmlbody1');  
+        document.getElementById("htmlbody").classList.add('htmlbody2');
+            
+          }
+
+          if(document.getElementById("txt").classList.contains('txt2')){
+            document.getElementById("txt").classList.remove('txt2'); 
+            document.getElementById("txt").classList.add('txt1'); 
+        }else{
+        document.getElementById("txt").classList.remove('txt1');  
+        document.getElementById("txt").classList.add('txt2');
+            
+          }
+        }
           </script>
 
 
