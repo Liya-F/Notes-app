@@ -7,7 +7,9 @@ const { result } = require('lodash');
 const noteRoutes = require('./routes/noteRoutes')
 
 dotenv.config({path: "./.env"})
-const connectionUrl = process.env.CONNECTION_URL;
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
+const connectionUrl = "mongodb+srv://"+dbUsername+":"+dbPassword+"@cluster0.t9ag3i7.mongodb.net/Notesdb?retryWrites=true&w=majority",
 PORT = process.env.PORT; 
 
 mongoose.connect(connectionUrl, {useNewUrlParser: true, useUnifiedTopology: true})
