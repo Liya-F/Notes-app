@@ -1,6 +1,8 @@
 const express = require('express');  
 const app = express();
 const dotenv = require('dotenv');
+const ejs = require("ejs");
+const path= require("path")
 
 const mongoose = require('mongoose');
 const { result } = require('lodash');
@@ -18,6 +20,8 @@ mongoose.connect(connectionUrl, {useNewUrlParser: true, useUnifiedTopology: true
 .catch((err)=>{console.log(err)});
 
 app.set('view engine', 'ejs'); 
+app.set('views', path.join(__dirname, 'views'));
+app.set('public', path.join(__dirname, 'public'));
 app.use(express.static('public'));  
 app.use(express.urlencoded({extended: true})); 
 
