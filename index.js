@@ -1,6 +1,8 @@
 const express = require('express');  
 const app = express();
 const dotenv = require('dotenv');
+const ejs = require("ejs");
+const path= require("path")
 
 const mongoose = require('mongoose');
 const { result } = require('lodash');
@@ -10,6 +12,7 @@ dotenv.config({path: "./.env"})
 const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
 const connectionUrl = "mongodb+srv://"+dbUsername+":"+dbPassword+"@cluster0.t9ag3i7.mongodb.net/Notesdb?retryWrites=true&w=majority",
+// const connectionUrl = "mongodb+srv://"+dbUsername+":"+dbPassword+"@cluster-test.pj5lswv.mongodb.net/?retryWrites=true&w=majority",
 PORT = process.env.PORT || 3000; 
 
 mongoose.connect(connectionUrl, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -17,6 +20,8 @@ mongoose.connect(connectionUrl, {useNewUrlParser: true, useUnifiedTopology: true
 .catch((err)=>{console.log(err)});
 
 app.set('view engine', 'ejs'); 
+app.set('views', path.join(__dirname, 'views'));
+app.set('public', path.join(__dirname, 'public'));
 app.use(express.static('public'));  
 app.use(express.urlencoded({extended: true})); 
 
